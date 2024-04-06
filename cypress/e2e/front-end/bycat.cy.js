@@ -1,8 +1,16 @@
 describe('Category feature', () => {
-    it('TEST CASE 009 | FE | Filter by category: Phone', () => {
+    beforeEach(() => {
         cy.visit('/onlineshop')
-        //cy.get('#cat').click();
-        cy.get('3-clothes').should('be.visible');
-        cy.contains('Men').click();
+        cy.get('.right').click();
+        cy.get('#category-3 > .dropdown-item').click(); 
+    });
+    
+    it('TEST CASE 004 | FE | Filter by category: Clothes - Men', () => {
+        cy.get('.category-sub-menu > :nth-child(1) > a').click();//Selecciona la sub categoria Clothes.
+        cy.screenshot()
+    })
+    it('TEST CASE 005 | FE | Filter by category: Clothes - Women', () => {
+        cy.get('.category-sub-menu > :nth-child(2) > a').click();//Selecciona la sub categoria Clothes.
+        cy.screenshot()
     })
 });
